@@ -15,9 +15,9 @@ if ! command -v ninja >/dev/null 2>&1; then
 fi
 
 if [ ! -f "$BUILD_DIR/build.ninja" ]; then
-  meson setup "$BUILD_DIR" --prefix="$PREFIX"
+  meson setup "$BUILD_DIR" "$ROOT" --prefix="$PREFIX"
 else
-  meson setup --reconfigure "$BUILD_DIR" --prefix="$PREFIX"
+  meson setup --reconfigure "$BUILD_DIR" "$ROOT" --prefix="$PREFIX"
 fi
 
 ninja -C "$BUILD_DIR"
